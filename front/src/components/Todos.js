@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
-import { gettodos } from '../services/TodoService';
+import { getTodos } from '../services/TodoService';
 import "../App.css";
 
 const Todos = () => {
@@ -8,7 +8,7 @@ const Todos = () => {
 
   useEffect(() => {
    let mounted = true;
-   gettodos()
+   getTodos()
      .then(data => {
        if(mounted) {
          setTodos(data)
@@ -35,7 +35,7 @@ const Todos = () => {
             <tr key={stu.id}>
                 <td>{stu.todoId}</td>
                 <td>{stu.name}</td>
-                <td>{stu.detail}</td>
+                <td>{stu.details}</td>
                 <td>{stu.status}</td>
             </tr>)}
         </tbody>
